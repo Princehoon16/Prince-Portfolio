@@ -1,0 +1,253 @@
+/* Navbar Custom Styles */
+@import "tailwindcss";
+
+/* Custom Gradient Animations */
+.navbar-gradient-text {
+    background: linear-gradient(45deg, #3B82F6, #8B5CF6, #EC4899);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s ease infinite;
+}
+
+.navbar-gradient-bg {
+    background: linear-gradient(45deg, #3B82F6, #8B5CF6, #EC4899);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Custom Glass Morphism */
+.navbar-glass {
+    /* background: rgba(255, 255, 255, 0.25); */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+}
+
+.navbar-glass-dark {
+    background: rgba(17, 24, 39, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Image Styles */
+.navbar-profile-image {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-profile-image:hover {
+    border-color: #3B82F6;
+    transition: border-color 0.3s ease;
+}
+
+/* Custom Status Indicator */
+.navbar-status-indicator {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    background-color: #10B981;
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* Custom Nav Link Styles */
+.navbar-link {
+    position: relative;
+    color: #374151;
+    transition: all 0.3s ease;
+}
+
+.navbar-link:hover {
+    color: #3B82F6;
+}
+
+.navbar-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, #3B82F6, #8B5CF6);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-link:hover::after {
+    width: 75%;
+}
+
+.navbar-link-active {
+    color: #3B82F6;
+}
+
+.navbar-link-active::after {
+    width: 75%;
+}
+
+/* Dark Mode Styles */
+.dark .navbar-link {
+    color: #D1D5DB;
+}
+
+.dark .navbar-link:hover {
+    color: #60A5FA;
+}
+
+.dark .navbar-profile-image {
+    border-color: #374151;
+}
+
+.dark .navbar-profile-image:hover {
+    border-color: #60A5FA;
+}
+
+/* Custom Button Styles */
+.navbar-hire-btn {
+    background: linear-gradient(45deg, #3B82F6, #8B5CF6);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.navbar-hire-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.4), 0 10px 10px -5px rgba(59, 130, 246, 0.2);
+}
+
+.navbar-hire-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.8s ease;
+}
+
+.navbar-hire-btn:hover::before {
+    left: 100%;
+}
+
+/* Mobile Menu Styles */
+.navbar-mobile-menu {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .navbar-mobile-menu {
+    background: rgba(17, 24, 39, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Scroll Behavior */
+.navbar-smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .navbar-profile-image {
+        width: 48px;
+        height: 48px;
+        border-width: 3px;
+    }
+    
+    .navbar-status-indicator {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-glass {
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+}
+
+/* Custom Animation Classes */
+.navbar-fade-in {
+    animation: navbarFadeIn 0.5s ease-out;
+}
+
+@keyframes navbarFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar-slide-in {
+    animation: navbarSlideIn 0.3s ease-out;
+}
+
+@keyframes navbarSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Custom Shadow Effects */
+.navbar-shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Custom Border Styles */
+.navbar-border-gradient {
+    border: double 3px transparent;
+    background-image: linear-gradient(white, white), linear-gradient(45deg, #3B82F6, #8B5CF6, #EC4899);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.dark .navbar-border-gradient {
+    background-image: linear-gradient(#1F2937, #1F2937), linear-gradient(45deg, #3B82F6, #8B5CF6, #EC4899);
+}
